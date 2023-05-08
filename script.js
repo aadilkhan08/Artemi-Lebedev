@@ -246,3 +246,8 @@ function locomotive() {
   })
   }
 canvas()
+
+
+document.querySelector(".center-box").addEventListener("click", function(){
+  console.log('hello')
+});
