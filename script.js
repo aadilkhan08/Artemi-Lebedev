@@ -221,12 +221,12 @@ function locomotive() {
   gsap.to(imageSeq, {
     frame: frameCount - 1,
     snap: "frame",
-    ease: Expo.ease,
+    ease: "none",
     repeat:-1,
     yoyo:true,
     duration:5000,
     scrollTrigger: {
-      trigger: `#page`,
+      trigger: `#page8>canvas`,
       start: `top top`,
       scroller: `#main`,
     },
@@ -260,7 +260,7 @@ function locomotive() {
     );
   }
   ScrollTrigger.create({
-    trigger: "#page",
+    trigger: "#page8>canvas",
     scroller: `#main`,
     start: `top top`,
   })
