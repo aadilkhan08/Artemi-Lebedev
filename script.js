@@ -32,9 +32,31 @@ function locomotive() {
   }
   locomotive();
   
-  
+  document.querySelector("#page7-three").addEventListener("mouseenter",function(){
+    document.querySelector("#page7-three-inner").style.width = `95%`,
+    document.querySelector("#page7-three").style.border = `1px solid #fff`,
+    document.querySelector("#page7-three>h1").style.color = `#fff`
+
+  })
+  document.querySelector("#page7-three").addEventListener("mouseleave",function(){
+    document.querySelector("#page7-three-inner").style.width = `100%`,
+    document.querySelector("#page7-three").style.border = `1px solid #dadada6c`
+    document.querySelector("#page7-three>h1").style.color = `#dadada6c`
+  })
+
+  document.querySelector(".center-box").addEventListener("mouseenter",function(){
+    document.querySelector(".center-box").style.width = `31%`
+    document.querySelector(".center-box>h1").style.color = `#dadada6c`
+
+  })
+  document.querySelector(".center-box").addEventListener("mouseleave",function(){
+    document.querySelector(".center-box").style.width = `32%`
+    document.querySelector(".center-box>h1").style.color = `#fff`
+  })
+
+
   function canvas (){
-    const canvas = document.querySelector("canvas");
+    const canvas = document.querySelector("#page8>canvas");
   const context = canvas.getContext("2d");
   
   canvas.width = window.innerWidth;
@@ -199,12 +221,13 @@ function locomotive() {
   gsap.to(imageSeq, {
     frame: frameCount - 1,
     snap: "frame",
-    ease: `none`,
+    ease: Expo.ease,
+    repeat:-1,
+    yoyo:true,
+    duration:5000,
     scrollTrigger: {
-      scrub: 0.15,
       trigger: `#page`,
       start: `top top`,
-      end: `400% top`,
       scroller: `#main`,
     },
     onUpdate: render,
@@ -238,16 +261,10 @@ function locomotive() {
   }
   ScrollTrigger.create({
     trigger: "#page",
-    pin: true,
-    // markers:true,
     scroller: `#main`,
     start: `top top`,
-    end: `400% top`,
   })
   }
 canvas()
 
 
-document.querySelector(".center-box").addEventListener("click", function(){
-  console.log('hello')
-});
